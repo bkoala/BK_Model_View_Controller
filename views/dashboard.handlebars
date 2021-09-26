@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+  {{#if blogs.length}}
+  {{#each blogs as |blog| }}
+<div class="row">
+  <div class="col-md-10">
+    <div class="card" >
+      <div class="card-header">
+        <div class="row">
+        <div class="col-md-8"><a href="/blog/{{blog.id}}">{{blog.name}}</a></div><div class="col-md-4"><span style="font-size:12px;float:right">Posted on {{format_date blog.date_created}}</span></div> 
+        </div>
+      </div>
+      <div class="card-body">
+         <p>
+      {{blog.description}}
+      </p>
+       
+      <form class="form delete-form" >
+       <input class="form-input" type="hidden" id="dataid" value="{{blog.id}}"/> 
+        <button class="btn btn-sm btn-danger" style="width: 100%; text-align:left" id="delete-blog" type="submit">DELETE</button>    
+      </form>             
+      
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}  
+{{/if}}
+
+<div class="row">
+  <div class="col-md-5">
+ <a href="/profile" style="padding-right:20px;">New Post</a> 
+ </div>
+ </div>
+
+<script src="../js/delete.js"></script>

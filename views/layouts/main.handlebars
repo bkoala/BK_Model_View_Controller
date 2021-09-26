@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Blog</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2" style="display:inline-block;background-color:black;color:cornsilk;">    
+      <nav >
+        <a href="/" style="padding:20px 20px ;">Home</a>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard" style="padding-right:20px;">Dashboard</a> 
+        <button class="no-button" id="logout" style="color:cornflowerblue">Logout</button>
+        {{else}}
+        <a href="/login" style="padding-right:20px;">Login</a>
+        <a href="/signup" >Signup</a>
+        {{/if}}
+      </nav>
+      
+        {{#if logged_in}}
+         <img src="images/dash.png" alt="dashboard"  width="150" height="50"> 
+        {{else}}
+      <img src="images/tech-png2.png" alt="techblog" width="150" height="50"/> 
+      {{/if}}
+   
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>

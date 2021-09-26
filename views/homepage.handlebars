@@ -1,0 +1,19 @@
+<!-- Loop over each object in the blogs array -->
+{{#each blogs as |blog| }}
+<div class="row">
+  <div class="col-md-10">
+    <div class="card" >
+      <div class="card-header">
+        <div class="row">
+        <div class="col-md-4">{{blog.name}}</div><div class="col-md-8"><span style="font-size:12px;float:right">Posted by {{blog.user.name}} on {{format_date blog.date_created}}</span></div> 
+      </div>
+    </div>
+      <div class="card-body">
+         <p>
+      {{blog.description}}
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
